@@ -1,0 +1,44 @@
+#!/bin/sh
+
+
+benchMarksSPEC=(
+     'bzip2' 'gcc' 'mcf' 'hmmer' 'sjeng' 'libquantum' 'xalan' 'milc' 'cactusADM' 'leslie3d' 'namd' 'soplex' 'calculix' 'lbm'
+   )
+
+benchMarksPARSEC=(
+ 'blackscholes' 'bodytrack' 'canneal' 'dedup' 'fluidanimate' 'freqmine' 'streamcluster' 'swaptions' 'x264'
+)
+
+replacementPolicy=(
+	'LRU' 'LFU' 'SRRIP'
+)
+
+SPECLen=${#benchMarksSPEC[@]}
+PARSECLen=${#benchMarksPARSEC[@]}
+BenchMarkLen=${#replacementPolicy[@]}
+
+echo "The Length of SPEC " $SPECLen
+echo "The Length of PARSEC " $PARSECLen
+echo "The Length of REPL POLICY " $BenchMarkLen
+
+ls
+# Go to the directory casim
+cd casim 
+ls
+#source setup_env
+ls
+cd zsim	
+ls
+
+echo "Running the PARSEC Benchmarks"
+
+for (( i=0; i<${PARSECLen}; i++ ));
+do
+  echo "Running" ${benchMarksPARSEC[$i]}
+  echo ""
+  echo ""
+  ./hw4runscript PARSEC ${benchMarksPARSEC[$i]} LRU
+  echo "Done Running " ${benchMarksPARSEC[$i]}  
+done
+
+echo "Finished the LRU Simulations"

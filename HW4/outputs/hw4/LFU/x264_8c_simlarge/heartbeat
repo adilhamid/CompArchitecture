@@ -1,0 +1,9 @@
+Running on: tlogin-0301.cluster
+Start time: Thu Oct 26 01:02:57 2017
+Heartbeat time: Thu Oct 26 01:06:14 2017
+Stats since start:
+ 47661 phases
+ 476610000 cycles
+ 2419340 cycles/s
+Stats since last heartbeat (7s):
+ 1835714 cycles/s
